@@ -8,7 +8,7 @@ const { uploadImage } = require("./controllers/adminCtrl");
 const router = require("./routes/userRoutes");
 const path = require("path");
 const ImageModel = require("./models/imageModels");
-
+const path = require("path");
 // const ImageModel = require("./models/documentModel");
 // const fs = require("fs");
 //dotenv conig
@@ -83,6 +83,12 @@ app.delete("/api/v1/deleteImage/:imageId", (req, res) => {
       console.error("Error deleting image:", err);
       res.status(500).json({ error: "Internal server error" });
     });
+});
+
+//static files
+app.use(express.static(path.join(__dirname, "./clien/build")));
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 /*********For uploading codes */
 const port = process.env.PORT || 8080;
