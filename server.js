@@ -8,7 +8,7 @@ const { uploadImage } = require("./controllers/adminCtrl");
 const router = require("./routes/userRoutes");
 const path = require("path");
 const ImageModel = require("./models/imageModels");
-const path = require("path");
+
 // const ImageModel = require("./models/documentModel");
 // const fs = require("fs");
 //dotenv conig
